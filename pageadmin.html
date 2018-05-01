@@ -1,0 +1,450 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PageAdmin</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	
+<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/pageadmin.css">
+<link rel="stylesheet" type="text/css" href="css/navbar.css">	
+	
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+
+
+	
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-default open" role="navigation">
+    <!-- Sidebar header -->
+    <div class="sidebar-header header-cover">
+        <!-- Top bar -->
+        <div class="top-bar"></div>
+       
+        <!-- Sidebar brand image -->
+        <div class="sidebar-image bck_img">
+            <img src="img/dp.jpg">
+        </div>
+		<div class="Text_Up">
+		<p>Jhon Doe</p>
+			
+		<div class="drp_up">
+            <a href="#" class="dropdown-toggle dropdown drp_dwn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Art Director </a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+            </ul>
+			</div>
+			
+		</div>
+        <!-- Sidebar brand name -->
+    </div>
+
+    <!-- Sidebar navigation -->
+    <ul class="nav sidebar-nav">
+        <li class="dropdown">
+            <ul id="settings-dropdown" class="dropdown-menu">
+                <li>
+                    <a href="#" tabindex="-1">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Help
+                    </a>
+                </li>
+                <li>
+                    <a href="#" tabindex="-1">
+                        Exit
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">
+				<img src="img/Dashboard.PNG" class="dash">
+				<h6 class="huruf">dashboard</h6>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+              <img src="img/Graphic.PNG" class="dash">
+				<h6 class="huruf">Graphic</h6>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="img/Forum.PNG" class="dash">
+				<h6 class="huruf">Forms</h6>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                 <img src="img/Table.PNG" class="dash">
+				<h6 class="huruf">Table</h6>
+            </a>
+        </li>
+		
+    </ul>
+</aside>
+	
+	<div class="wrapper">
+    <!-- Sidebar Constructor -->
+    <div class="constructor">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light nav_color z-depth-1">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+	  <div class="nav_kn">
+    <ul class="nav">
+		
+		 <li class="dropdown psn log_kr" >
+                  <a href="#" class="dropdown-toggle caret_dwn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
+                    <span class="fa fa-sign-out alertNotificacao" ></span>
+			 	<h6 class="log_out">Logout</h6>
+			 </a>
+               </li>
+		
+		 <li class="dropdown psn bell_kr" >
+                  <a href="#" class="dropdown-toggle caret_dwn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
+                    <span class="fa fa-bell alertNotificacao" ></span>
+                    <span class='badgeAlert'>2</span></a>
+                  <ul class="list-notificacao dropdown-menu">
+                    <li id='item_notification_1'>
+                        <div class="media">
+                           <div class="media-left"> 
+                              <a href="#"> 
+                              <img alt="64x64" class="media-object" data-src="holder.js/64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWZhMWJmZmI3MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZmExYmZmYjcwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true"> </a> 
+                           </div>
+                           <div class="media-body">
+                              <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1' onclick='excluirItemNotificacao(this)'>x</button>
+                              </div>
+                              <h4 class="media-heading">ITEM 1</h4>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                     </li>    
+                     <li id='item_notification_2'>
+                        <div class="media">
+                           <div class="media-left"> 
+                              <a href="#"> 
+                              <img alt="64x64" class="media-object" data-src="holder.js/64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWZhMWJmZmI3MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZmExYmZmYjcwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true"> </a> 
+                           </div>
+                           <div class="media-body">
+                              <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs' id='2' onclick='excluirItemNotificacao(this)'>x</button>
+                              </div>
+                              <h4 class="media-heading">ITEM 2</h4>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+		
+		 <li class="dropdown psn" >
+                  <a href="#" class="dropdown-toggle caret_dwn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >
+                    <span class="fa fa-envelope alertNotificacao" ></span></a>
+                  <ul class="list-notificacao dropdown-menu">
+                    <li id='item_notification_1'>
+                        <div class="media">
+                           <div class="media-left"> 
+                              <a href="#"> 
+                              <img alt="64x64" class="media-object" data-src="holder.js/64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWZhMWJmZmI3MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZmExYmZmYjcwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true"> </a> 
+                           </div>
+                           <div class="media-body">
+                              <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs button_exclusao' id='1' onclick='excluirItemNotificacao(this)'>x</button>
+                              </div>
+                              <h4 class="media-heading">ITEM 1</h4>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                     </li>    
+                     <li id='item_notification_2'>
+                        <div class="media">
+                           <div class="media-left"> 
+                              <a href="#"> 
+                              <img alt="64x64" class="media-object" data-src="holder.js/64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNWZhMWJmZmI3MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1ZmExYmZmYjcwIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40Njg3NSIgeT0iMzYuNSI+NjR4NjQ8L3RleHQ+PC9nPjwvZz48L3N2Zz4=" data-holder-rendered="true"> </a> 
+                           </div>
+                           <div class="media-body">
+                              <div class='exclusaoNotificacao'><button class='btn btn-danger btn-xs' id='2' onclick='excluirItemNotificacao(this)'>x</button>
+                              </div>
+                              <h4 class="media-heading">ITEM 2</h4>
+                              <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </li>
+		
+              
+		
+		
+            </ul>
+		</div>
+  </div>
+</nav>
+	<br><br>
+		
+		<div class="card_jarak" id="app">
+		<div class="card">
+  <h5 class="card-header title_list">List User</h5>
+			
+	<form class="search-form src_form">
+  <input type="text" v-model="search" placeholder="Search" class="search-input">
+  <button type="submit" class="search-button">
+    <svg class="submit-button">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+    </svg>
+  </button>
+</form>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" display="none">
+  <symbol id="search" viewBox="0 0 32 32">
+    <path d="M 19.5 3 C 14.26514 3 10 7.2651394 10 12.5 C 10 14.749977 10.810825 16.807458 12.125 18.4375 L 3.28125 27.28125 L 4.71875 28.71875 L 13.5625 19.875 C 15.192542 21.189175 17.250023 22 19.5 22 C 24.73486 22 29 17.73486 29 12.5 C 29 7.2651394 24.73486 3 19.5 3 z M 19.5 5 C 23.65398 5 27 8.3460198 27 12.5 C 27 16.65398 23.65398 20 19.5 20 C 15.34602 20 12 16.65398 12 12.5 C 12 8.3460198 15.34602 5 19.5 5 z" />
+  </symbol>
+</svg>		
+			
+			<button type="button" class="btn btn-info btn-circle btn-lg btn_kn"
+					data-toggle="modal" data-target="#exampleModal">
+				<i class="fa fa-plus plus_icon" aria-hidden="true"></i></button>
+			
+				<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form @submit.prevent="handleSubmit">
+        <div class="col-md-6">
+         <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" class="form-control" v-model="username">
+         </div>
+         <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" class="form-control" v-model="name">
+         </div>
+        </div>
+        <div class="col-md-6">
+         <div class="form-group">
+          <label for="tlp">Telephone</label>
+          <input type="number" id="tlp" class="form-control" v-model="tlp">
+         </div>
+         <div class="form-group">
+          <label for="role">Role</label>
+          <input type="text" id="role" class="form-control" v-model="role">
+         </div>
+        </div>
+        <div class="col-md-12">
+         <button type="submit" class="btn btn-info" >Submit</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+       </form>
+		
+		 <h6>Hasil Data</h6> 
+		   <p>Username : {{username}}</p>
+           <p>Name : {{name}}</p>
+           <p>Telephone : {{tlp}}</p>
+           <p>Role : {{role}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+			
+			<br><br><br>
+  <div class="card-body">
+  <table class="table tb_th">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Telephone</th>
+		<th>Role
+			<i class="fa fa-angle-up srt_pnh" aria-hidden="true"  @click="sortLowest"></i>
+		  	<i class="fa fa-angle-down srt_pnh" aria-hidden="true" @click="sortHighest"></i>
+		  </th>
+		<th colspan="2" class="action">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr tabindex="1" v-for="blog in filteredDataUser">
+        <td>{{blog.username}}</td>
+        <td>{{blog.name}}</td>
+        <td>{{blog.tlp}}</td>
+		  <td>{{blog.role}}</td>
+		  <td class="edt">EDIT</td>
+		  <td class="dlt" v-on:click="DeleteData">DELETE</td>
+      </tr>
+		
+    </tbody>
+  </table>
+	  
+	  	<!--Form EDIT-->
+	  <table hidden="hidden">
+        <thead>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Telephone</th>
+          <th>Role</th>
+        </thead>
+        <tbody>
+          <tr v-for="blog in filteredDataUser" :class="{editing: blog == editedUser}" v-cloak>
+            <td>
+              <div class="edit">
+                <input type="text" v-model="blog.username"/>
+              </div>
+            </td>
+            <td>
+              <div class="edit">
+                <input type="text" v-model="blog.name"/>
+              </div>
+            </td>
+			  <td>
+              <div class="edit">
+                <input type="text" v-model="blog.tlp"/>
+              </div>
+            </td>
+			  <td>
+              <div class="edit">
+                <input type="text" v-model="blog.role"/>
+              </div>
+            </td> 
+            <td>
+              <div class="view">
+                <button @click="editData(DataUser)">edit</button>
+              </div>
+            </td>
+            <td><button>delete</button></td>
+          </tr>
+        </tbody>
+      </table> 
+	  
+	<br>
+	 
+	  
+<div class="form-group page">
+	<h6 class="rws">Rows per page :</h6>
+    <select id="selectbasic" name="selectbasic" class="form-control garis">
+      <option value="2">5</option>
+      <option value="1">10</option>
+      <option value="0">20</option>
+    </select>
+</div>
+	  
+	  <div class="page_arrow">
+	  <p>
+		  <h6 class="result">1-5 of 10</h6>
+		<div class="kn_kr">
+	   <i class="fa fa-angle-left panah panah_kn" aria-hidden="true"></i>
+	  <i class="fa fa-angle-right panah" aria-hidden="true"></i>
+			</div>  
+	  </p>
+	  </div>
+	  
+  </div>
+</div>
+	</div>	
+		
+    </div>
+</div>
+	
+
+	<!-- Jquery -->
+	<script type="text/javascript" src="js/vue.js"></script>
+	<script type="text/javascript" src="js/pageadmin.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/navbar.js"></script>
+	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+	
+<script>
+new Vue({
+	el: '#app',
+	 data: {
+   username: "",
+   name: "",
+   tlp: "",
+   role: "",	 
+   search: "",
+   editedUser: null,		 
+   DataUser: [
+   {
+    username: "JohnHund",
+    name: "John Hunyadi",
+    tlp: 083812349876,
+    role: "A"
+   },
+   {
+    username: "IteungJuleha",
+    name: "Juleha Iteung",
+    tlp: 082143211234,
+    role: "B"
+   }
+   ]
+		 
+  },
+		
+	methods: {
+		
+	handleSubmit() {
+      this.DataUser.push({
+     username: this.username,
+     name: this.name,
+     tlp: this.tlp,
+     role: this.role,
+    });
+    },
+		
+		 editData (DataUser) {
+      this.beforEditCache = DataUser
+      this.editedUser = DataUser
+    },
+		
+	DeleteData: function(){
+		 this.DataUser = [];
+	},	
+		
+    sortLowest() {
+      this.DataUser.sort((a, b) => a.role > b.role ? 1 : -1);
+    },
+    sortHighest() {
+      this.DataUser.sort((a, b) => a.role < b.role ? 1 : -1);
+    }
+  },
+	
+	
+	
+	computed:{
+   filteredDataUser: function(){
+    return this.DataUser.filter((data) => {
+     return data.username.match(this.search);
+    });
+   }
+  }
+		
+});	
+	</script>	
+	
+</body>
+	
+</html>

@@ -1,0 +1,85 @@
+.list-notificacao{
+  min-width: 400px;
+  background: #ffffff;
+}
+
+.list-notificacao li{
+   border-bottom : 1px #d8d8d8 solid;
+   text-align    : justify;
+   padding       : 5px 10px 5px 10px;
+   cursor: pointer;
+   font-size: 12px;
+}
+
+.list-notificacao li:hover{
+background: #f1eeee;
+}
+
+.list-notificacao li:hover .exclusaoNotificacao{
+display: block;
+}
+
+.list-notificacao li  p{
+ color: black;
+ width: 305px;
+}
+
+.list-notificacao li .exclusaoNotificacao{
+    width: 25px;
+    min-height: 40px;
+    position: absolute;
+    right: 0;
+    display: none;
+}
+
+.list-notificacao .media img{
+    width: 40px;
+    height: 40px;
+    float:left;
+    margin-right: 10px;
+}
+
+.badgeAlert {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: right;
+    background-color: #77cd9b;
+    border-radius: 10px;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 10px
+}
+
+.nav_kn{
+	margin-left: 900px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	
+}
+
+.psn{
+	margin-right: -120px;
+}
+
+.log_out{
+	font-size: 15px;
+	font-weight: 400;
+	color: black;
+	margin-left: 30px;
+	margin-top: -22px;
+}
+
+.bell_kr{
+	margin-right: -100px;
+}
+
+.log_kr{
+	margin-right: -150px;
+}
